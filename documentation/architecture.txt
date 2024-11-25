@@ -50,44 +50,48 @@ tags.id  1 --> m  user_tags.tag_id
 
 
 
-/my_fastapi_app
-├── app
+src/
+├── __init__.py 
+├── app/                      # Contains FastAPI API logic
 │   ├── __init__.py
-│   ├── main.py          # Entry point of the application
-│   ├── config.py        # Global configurations for the application
-│   ├── api              # Module for API handling
+│   ├── main.py               # Entry point for FastAPI server
+│   ├── routers/
 │   │   ├── __init__.py
-│   │   ├── auth_router.py    # Routes related to authentication
-│   │   ├── task_router.py     # Routes for task management
-│   │   ├── user_router.py     # Routes for user management
-│   │   └── dependencies.py     # Shared dependencies for routes
-│   ├── logic            # Module for business logic and database connections
+│   │   ├── auth_router.py    # Routes for authentication
+│   │   ├── task_router.py    # Routes for task management
+│   │   └── user_router.py    # Routes for user management
+│   ├── dependencies.py       # Dependencies for API
+│   ├── templates/            # HTML templates if using Jinja2
+│   │   └── index.html
+│   └── logging.init          # Logging configuration file
+├── task_manager/             # Business logic and database layer
+│   ├── __init__.py
+│   ├── config.py             # Global configurations for the application
+│   ├── database.py           # Database connection logic
+│   ├── models/
 │   │   ├── __init__.py
-│   │   ├── database.py      # Database connection setup
-│   │   ├── auth_service.py    # Auth-related services (login, signup, etc.)
-│   │   ├── task_service.py     # Task-related services (CRUD logic)
-│   │   └── user_service.py     # User-related services (CRUD logic)
-│   ├── models           # Database models
+│   │   ├── task.py           # DB models for tasks
+│   │   ├── user.py           # DB models for users
+│   │   └── task_user.py      # Relationship model between tasks and users
+│   ├── services/
 │   │   ├── __init__.py
-│   │   ├── task.py          # DB models for tasks (e.g., Task, TaskStatus)
-│   │   ├── user.py          # DB models for users (e.g., User, Profile)
-│   │   └── task_user.py     # Relationship model between tasks and users
-│   ├── schemas          # Pydantic schemas for data validation
+│   │   ├── auth_service.py   # Auth-related services
+│   │   ├── task_service.py   # Task-related services
+│   │   └── user_service.py   # User-related services
+│   ├── schemas/
 │   │   ├── __init__.py
-│   │   ├── auth_schema.py      # Pydantic models for authentication
-│   │   ├── task_schema.py       # Pydantic models for tasks
-│   │   └── user_schema.py       # Pydantic models for users
-│   ├── utils            # General utility functions
+│   │   ├── auth_schema.py    # Pydantic models for authentication
+│   │   ├── task_schema.py    # Pydantic models for tasks
+│   │   └── user_schema.py    # Pydantic models for users
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   └── helpers.py        # General utility functions
+│   └── tests/
 │       ├── __init__.py
-│       └── helpers.py           # Helper functions
-├── tests                # Test cases organized by module
-│   ├── __init__.py
-│   ├── auth/                # Tests for authentication module
-│   ├── tasks/               # Tests for task management module
-│   └── users/               # Tests for user management module
-├── templates               # HTML templates if using Jinja2 or similar
-│   └── index.html          
-├── .env                     # Environment variables configuration file
-├── .gitignore               # Git ignore file to exclude unnecessary files
-└── logging.init             # Logging configuration file
+│       ├── auth/             # Tests for authentication
+│       ├── tasks/            # Tests for task management
+│       └── users/            # Tests for user management
+├── .env                      # Environment variables
+├── .gitignore                # Git ignore file
+└── README.md                 # Documentation
 
