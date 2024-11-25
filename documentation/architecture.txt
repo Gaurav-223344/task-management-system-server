@@ -1,0 +1,93 @@
+
+
+Tables:
+
+user
+- id
+- first_name
+- last_name
+- user_name
+- password
+- email
+- email_verified
+- contact
+- contact_verified
+
+
+tags
+- id
+- title
+
+user_tags
+- user_id
+- tag_id
+
+
+task
+- id
+- title
+- description
+- due_date_time
+- status {in_progress, pending, done, to_do}
+- tags [tag_id]
+- created_at
+- updated_at
+- created_by
+
+
+user_task
+- user_id
+- task_id
+
+
+relation:
+
+user.id  1 --> m  user_task.user_id
+task.id  1 --> m  user_task.task_id
+user.id  1 --> m  user_tags.user_id
+tags.id  1 --> m  user_tags.tag_id
+
+
+
+
+/my_fastapi_app
+├── app
+│   ├── __init__.py
+│   ├── main.py          # Entry point of the application
+│   ├── config.py        # Global configurations for the application
+│   ├── api              # Module for API handling
+│   │   ├── __init__.py
+│   │   ├── auth_router.py    # Routes related to authentication
+│   │   ├── task_router.py     # Routes for task management
+│   │   ├── user_router.py     # Routes for user management
+│   │   └── dependencies.py     # Shared dependencies for routes
+│   ├── logic            # Module for business logic and database connections
+│   │   ├── __init__.py
+│   │   ├── database.py      # Database connection setup
+│   │   ├── auth_service.py    # Auth-related services (login, signup, etc.)
+│   │   ├── task_service.py     # Task-related services (CRUD logic)
+│   │   └── user_service.py     # User-related services (CRUD logic)
+│   ├── models           # Database models
+│   │   ├── __init__.py
+│   │   ├── task.py          # DB models for tasks (e.g., Task, TaskStatus)
+│   │   ├── user.py          # DB models for users (e.g., User, Profile)
+│   │   └── task_user.py     # Relationship model between tasks and users
+│   ├── schemas          # Pydantic schemas for data validation
+│   │   ├── __init__.py
+│   │   ├── auth_schema.py      # Pydantic models for authentication
+│   │   ├── task_schema.py       # Pydantic models for tasks
+│   │   └── user_schema.py       # Pydantic models for users
+│   ├── utils            # General utility functions
+│       ├── __init__.py
+│       └── helpers.py           # Helper functions
+├── tests                # Test cases organized by module
+│   ├── __init__.py
+│   ├── auth/                # Tests for authentication module
+│   ├── tasks/               # Tests for task management module
+│   └── users/               # Tests for user management module
+├── templates               # HTML templates if using Jinja2 or similar
+│   └── index.html          
+├── .env                     # Environment variables configuration file
+├── .gitignore               # Git ignore file to exclude unnecessary files
+└── logging.init             # Logging configuration file
+

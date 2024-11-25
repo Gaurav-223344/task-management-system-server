@@ -1,0 +1,18 @@
+
+
+Task Management System :: Version = Alpha
+
+- User Management
+- Task Management
+    - Task Creation
+    - Task Scheduling
+    - Task Monitoring
+- Notifications
+- Reporting and Insights
+
+
+Task Management System :: Version = 1.0
+
+- Workspaces
+
+

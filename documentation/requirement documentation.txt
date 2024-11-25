@@ -1,0 +1,240 @@
+
+
+Task Management System - Requirements Documentation
+Version: 1.0
+Author: [Your Name]
+Date: [Insert Date]
+
+
+1. Feature Requirements
+
+    1.1 User Management
+        The system shall allow users to:
+            - Register an account using an email and password.
+            - Log in and log out securely.
+            - Update their profile information (e.g., name, email).
+            - Reset passwords via email.
+
+    1.2 Task Creation
+        The system shall enable users to:
+            - Create tasks with the following attributes:
+                - Task Name
+                - Description
+                - Due Date and Time
+                - Priority Level (Low, Medium, High)
+                - Tags (optional, e.g., "Work", "Personal").
+            - Specify whether the task is a one-time or recurring task.
+
+
+    1.3 Task Management
+        The system shall provide users with:
+            - The ability to view a list of all tasks with filters for:
+                - Status: Pending, Running, Completed, Failed
+                - Priority Level
+                - Due Date
+            - The ability to update task attributes such as name, description, due date, and priority.
+            - The option to delete tasks they no longer need.
+
+    1.4 Task Monitoring
+        The system shall allow users to:
+            - View the current status of tasks:
+                - Pending
+                - Running
+                - Completed
+                - Failed
+            - Track task execution history, including timestamps for when a task was started and completed.
+
+    1.5 Notifications
+        The system shall send notifications for:
+            - Task reminders (configurable by the user).
+            - Task completion or failure.
+        Notifications shall be delivered via:
+            - Email (mandatory).
+            - Optional integrations with external services (e.g., SMS, Slack).
+
+    1.6 Reporting and Insights
+        The system shall generate reports for:
+            - Completed tasks within a specific time range.
+            - Task trends, such as the most frequent task categories or average completion time.
+        Reports shall be downloadable in formats such as PDF or CSV.
+
+    1.7 Workspaces
+        The system shall allow users to:
+            - Create Workspaces: Users can create multiple workspaces for different projects or teams, each with a unique name and description.
+            - Edit Workspaces: Users can update the name and description of a workspace.
+            - Delete Workspaces: Users can delete workspaces, which will also remove all tasks associated with that workspace (confirmation required).
+
+        User Roles in Workspaces:
+            - Admin: Full control over the workspace, including managing tasks, members, and settings.
+            - Member: Can create and update tasks but cannot manage workspace settings or roles.
+            - Viewer: Read-only access to tasks and workspace updates.
+
+        Member Management:
+            - Admins can invite users by username or email to join a workspace.
+            - Admins can remove users and manage roles (Admin, Member, Viewer).
+
+        Task Management within Workspaces:
+            - Tasks are created within a workspace and can be assigned to specific members.
+            - Users can organize tasks within the workspace using labels, tags, or categories.
+
+        Activity Log:
+            - The system shall maintain a log of workspace activities, including task creation, updates, member additions, removals, and role changes.
+
+        Notifications in Workspaces:
+            - Members shall receive notifications for task assignments, status updates, and changes in roles.
+
+        Workspace Dashboard:
+            - A centralized dashboard for each workspace to view all tasks, their statuses, assigned members, and progress.
+
+        Workspace Visibility:
+            - Private Workspaces: Only invited members can view or access the workspace.
+            - Public Workspaces (Optional for future): Allow a workspace to be visible to all users in the system.
+
+2. Future Scope
+    2.1 Enhanced Scheduling
+        Introduce support for dynamic scheduling:
+            Trigger tasks based on specific events or conditions (e.g., task dependent on another tasks completion).
+            Advanced recurrence rules, such as skipping weekends or holidays.
+    2.2 Integrations
+        Integrate with third-party tools like:
+            Calendar apps (Google Calendar, Microsoft Outlook).
+            Communication platforms (Slack, Microsoft Teams).
+            Project management tools (Trello, Asana, Jira).
+    2.3 AI-Driven Features
+        Implement AI-based recommendations for:
+            Prioritizing tasks based on deadlines and workloads.
+            Automatic task assignment for collaborative workflows.
+        Predict task durations based on historical data.
+    2.4 Advanced Notifications
+        Add multi-channel notifications:
+            Push notifications via a mobile app.
+            SMS alerts for critical tasks.
+        Enable customizable notification rules per user or task.
+    2.5 Mobile Application
+        Develop a companion mobile app for managing tasks on the go.
+        Sync with the web version in real-time.
+    2.6 Gamification
+        Introduce gamification features:
+            Points and badges for task completion.
+            Leaderboards for collaborative groups.
+    2.7 Offline Mode
+        Allow users to manage tasks offline with automatic synchronization once they are back online.
+    2.8 Public APIs
+        Provide a public API for developers to:
+            Integrate the task management system into their own applications.
+            Create custom plugins or extensions.
+
+
+
+1. Flow of Application with Dashboards/Pages
+
+    1.1 User Authentication Flow
+
+        1.1.1 Login Page:
+            - Users enter their email and password to access the system.
+            - Option to reset password if forgotten (via email).
+            - Successful login redirects to the Dashboard Page.
+
+        1.1.2 Registration Page (if the user does not have an account):
+            - Users sign up by entering email and password.
+            - Account creation is confirmed via an email verification step.
+            - Successful registration redirects to the Login Page.
+
+    1.2 Dashboard Page
+
+        1.2.1 Dashboard Overview:
+            - Displays task statistics:
+                - Total tasks: Pending, In Progress, Completed.
+                - Task priority summary (e.g., how many High, Medium, Low priority tasks).
+            - Quick Actions:
+                - Create a new task.
+                - Create a new workspace.
+            - Upcoming Tasks:
+                - List of tasks with approaching deadlines.
+            - Activity Feed:
+                - Recent updates or changes to tasks or workspaces (e.g., task assignments, task completion).
+
+        1.2.2 Navigation:
+            - Links to Tasks, Workspaces, and Reports sections.
+
+    1.3 Task Management Pages
+
+        1.3.1 Task List Page:
+            - A list of all tasks associated with the user (and their workspaces).
+            - Filters:
+                - Task status (Pending, Running, Completed, Failed).
+                - Priority Level (Low, Medium, High).
+                - Due Date.
+            - Task Actions:
+                - View task details.
+                - Edit task (name, description, due date, priority).
+                - Delete task.
+
+        1.3.2 Create Task Page:
+            - Form to create a new task with fields like:
+                - Task Name
+                - Description
+                - Due Date and Time
+                - Priority Level
+                - Tags
+                - Recurrence settings (for recurring tasks).
+            - Option to assign the task to specific team members (if workspace feature is enabled).
+            - Option to save or create a recurring task.
+
+        1.3.3 Task Details Page:
+            - Displays full details of a task, including:
+                - Task Name, Description, Due Date.
+                - Assigned user(s), task status.
+                - Activity Log (history of changes, updates).
+                - Comments section for collaboration.
+                - Option to update the task status (e.g., Pending → In Progress → Completed).
+
+        1.3.4 Task Monitoring Page:
+            - Overview of task statuses (Pending, Running, Completed, Failed).
+            - Tracking of task execution times, including timestamps for when a task started and completed.
+
+    1.4 Workspace Management Pages
+
+        1.4.1 Workspace List Page:
+            - List of workspaces the user is part of.
+            - Workspace Actions:
+                - Create a new workspace.
+                - Edit or delete existing workspaces (Admin users).
+                - View the list of members and their roles (Admin view).
+
+        1.4.2 Create Workspace Page:
+            - Form to create a new workspace:
+                - Workspace Name
+                - Description
+                - Select members (can invite via username or email).
+                - Assign roles (Admin, Member, Viewer).
+
+        1.4.3 Workspace Details Page:
+            - Displays the tasks, members, and activity within a specific workspace.
+            - Task Management:
+                - Create new tasks within the workspace.
+                - View tasks and assign them to workspace members.
+            - Workspace Settings (Admin only):
+                - Modify workspace details.
+                - Manage members (add/remove users, change roles).
+
+    1.5 Reporting and Insights Pages
+
+        1.5.1 Reports Page:
+            - Allows users to generate and view various reports based on task data.
+            - Available Reports:
+                - Task completion over a specified date range.
+                - Most frequent task categories or tags.
+                - Average task completion time or overdue tasks.
+
+        1.5.2 Download Report Page:
+            - Allows users to download reports in formats like PDF or CSV.
+            - Customizable report filters (e.g., task status, date range).
+
+    1.6 Notification System
+
+        1.6.1 Notification Page:
+            - Displays notifications related to tasks, workspace updates, and activity alerts.
+            - Users can configure their notification preferences (e.g., email, SMS, push notifications).
+            - Options to mark notifications as read or delete them.
+
