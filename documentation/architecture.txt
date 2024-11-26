@@ -60,38 +60,48 @@ src/
 │   │   ├── auth_router.py    # Routes for authentication
 │   │   ├── task_router.py    # Routes for task management
 │   │   └── user_router.py    # Routes for user management
+│   ├── schemas/
+│   │   ├── __init__.py
+│   │   ├── auth_schema.py    # Pydantic models for authentication
+│   │   ├── task_schema.py    # Pydantic models for tasks
+│   │   └── user_schema.py    # Pydantic models for users
 │   ├── dependencies.py       # Dependencies for API
+│   ├── decorators.py         # Custom Decorators for API
 │   ├── templates/            # HTML templates if using Jinja2
 │   │   └── index.html
 │   └── logging.init          # Logging configuration file
 ├── task_manager/             # Business logic and database layer
 │   ├── __init__.py
 │   ├── config.py             # Global configurations for the application
-│   ├── database.py           # Database connection logic
-│   ├── models/
-│   │   ├── __init__.py
-│   │   ├── task.py           # DB models for tasks
-│   │   ├── user.py           # DB models for users
-│   │   └── task_user.py      # Relationship model between tasks and users
+│   ├── db            
+│   │   ├── database.py           # Database connection logic
+│   │   ├── models/
+│   │   ├   ├── __init__.py
+│   │   ├   ├── task.py           # DB models for tasks
+│   │   ├   ├── user.py           # DB models for users
+│   │   ├   └── task_user.py      # Relationship model between tasks and users
+│   │   └── schema.py             # Tables Schema
 │   ├── services/
 │   │   ├── __init__.py
 │   │   ├── auth_service.py   # Auth-related services
 │   │   ├── task_service.py   # Task-related services
 │   │   └── user_service.py   # User-related services
-│   ├── schemas/
-│   │   ├── __init__.py
-│   │   ├── auth_schema.py    # Pydantic models for authentication
-│   │   ├── task_schema.py    # Pydantic models for tasks
-│   │   └── user_schema.py    # Pydantic models for users
 │   ├── utils/
 │   │   ├── __init__.py
 │   │   └── helpers.py        # General utility functions
+│   ├── decorators.py         # Custom Decorators for task management
 │   └── tests/
 │       ├── __init__.py
 │       ├── auth/             # Tests for authentication
 │       ├── tasks/            # Tests for task management
 │       └── users/            # Tests for user management
+├── decorators.py             # Global Decorators for task management
 ├── .env                      # Environment variables
 ├── .gitignore                # Git ignore file
 └── README.md                 # Documentation
+
+
+
+------------------------------------------------------------------
+
 
